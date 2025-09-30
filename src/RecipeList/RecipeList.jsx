@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import RecipeCard from "./RecipeCard.jsx";
+import RecipeCard from "../RecipeCard/RecipeCard.jsx";
 import "./RecipeList.css";
 
 export default function GetRecipes() {

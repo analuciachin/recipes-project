@@ -17,6 +17,7 @@
   font-size: 2rem;
   font-weight: bold;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  margin-bottom: 30px;
 }
 
 .recipe-list {
@@ -24,5 +25,4 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #e6e6e6;
 }

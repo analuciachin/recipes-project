@@ -18,6 +18,7 @@ export default function RecipeCard(props) {
         <p className="recipe-card__difficulty">
           Difficulty: {details.difficulty}
         </p>
+        <button>See recipe</button>
       </div>
     </>
   );
