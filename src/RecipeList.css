@@ -1,0 +1,28 @@
+.banner-stripes {
+  height: 200px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    #ff7043,
+    #ff7043 40px,
+    #ffca28 40px,
+    #ffca28 80px,
+    #66bb6a 80px,
+    #66bb6a 120px
+  );
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.recipe-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #e6e6e6;
+}
