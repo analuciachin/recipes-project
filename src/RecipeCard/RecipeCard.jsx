@@ -1,7 +1,5 @@
-import useState from "react";
 import "./RecipeCard.css";
-import RecipeDetails from "../RecipeDetails/RecipeDetails.jsx";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function RecipeCard(props) {
   const { recipe_card } = props;
@@ -26,12 +24,7 @@ export default function RecipeCard(props) {
         <button onClick={() => navigate(`/recipes/${recipe_card.id}`)}>
           See recipe
         </button>
-        {/* <RecipeDetails /> */}
       </div>
-
-      {/* <Routes>
-        <Route path="/recipes/:id" element={<RecipeDetails />}></Route>
-      </Routes> */}
     </>
   );
 }

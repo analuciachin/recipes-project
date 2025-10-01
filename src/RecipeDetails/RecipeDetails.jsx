@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export default function RecipeDetails(props) {
-  const [item, setItem] = useState({});
+  const [details, setDetails] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
     fetch(`https://dummyjson.com/recipes/2`)
       .then((response) => response.json())
       .then((data) => {
-        setItem(data);
+        setDetails(data);
         console.log(data);
       })
       .catch((error) => console.log(error));
@@ -19,7 +19,7 @@ export default function RecipeDetails(props) {
     <>
       <div>
         RecipeDetails TEST
-        {item.name ? <p>{item.name}</p> : <p>Loading...</p>}
+        {details.name ? <p>{details.name}</p> : <p>Loading...</p>}
       </div>
     </>
   );
