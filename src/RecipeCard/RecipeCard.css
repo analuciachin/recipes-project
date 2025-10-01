@@ -23,13 +23,13 @@
   font-size: 1.3rem;
 }
 
-.recipe-card__cuisine {
-  font-size: 1.1rem;
-}
-
+.recipe-card__cuisine,
 .recipe-card__meal-type,
 .recipe-card__difficulty {
-  font-size: 1rem;
+  font-size: 1.1rem;
+  span {
+    font-weight: bold;
+  }
 }
 
 .recipe-card button {

@@ -14,12 +14,14 @@ export default function RecipeCard(props) {
           alt={recipe_card.name}
           className="recipe-card__image"
         />
-        <p className="recipe-card__cuisine">Cuisine: {recipe_card.cuisine}</p>
+        <p className="recipe-card__cuisine">
+          <span>Cuisine:</span> {recipe_card.cuisine}
+        </p>
         <p className="recipe-card__meal-type">
-          Meal Type: {recipe_card.mealType}
+          <span>Meal Type:</span> {recipe_card.mealType}
         </p>
         <p className="recipe-card__difficulty">
-          Difficulty: {recipe_card.difficulty}
+          <span>Difficulty:</span> {recipe_card.difficulty}
         </p>
         <button onClick={() => navigate(`/recipes/${recipe_card.id}`)}>
           See recipe
