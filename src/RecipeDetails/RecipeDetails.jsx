@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "./RecipeDetails.css";
 
 export default function RecipeDetails(props) {
   const [details, setDetails] = useState(null);
@@ -28,7 +29,49 @@ export default function RecipeDetails(props) {
 
   return (
     <>
-      <div>{details && <p>{details.name}</p>}</div>
+      {details && (
+        <div className="recipe-details__container">
+          <h1>{details.name}</h1>
+          <p className="recipe-details__information">
+            Prep time: {details.prepTimeMinutes} minutes
+          </p>
+          <p className="recipe-details__information">
+            Cook time: {details.cookTimeMinutes} minutes
+          </p>
+          <p className="recipe-details__information">
+            Servings: {details.servings}
+          </p>
+          <p className="recipe-details__information">
+            Level of difficulty: {details.difficulty}
+          </p>
+          <p className="recipe-details__information">
+            Cuisine: {details.cuisine}
+          </p>
+          <p className="recipe-details__information">
+            Calories per serving: {details.caloriesPerServing}
+          </p>
+          <p className="recipe-details__information">
+            Meal type: {details.mealType}
+          </p>
+          <img
+            src={details.image}
+            alt={details.name}
+            className="recipe-details__image"
+          />
+          <h2>Ingredients</h2>
+          <ul>
+            {details.ingredients.map((ingredient, index) => (
+              <li key={index}>{ingredient}</li>
+            ))}
+          </ul>
+          <h2>Instructions</h2>
+          <ul>
+            {details.instructions.map((instruction, index) => (
+              <li key={index}>{instruction}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </>
   );
 }
