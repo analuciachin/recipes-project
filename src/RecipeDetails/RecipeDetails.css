@@ -30,3 +30,14 @@ body {
     margin-left: -40px;
   }
 }
+
+.recipe-details__container button {
+  background: #ff7043;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 1.2rem;
+}

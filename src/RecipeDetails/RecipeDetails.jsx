@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./RecipeDetails.css";
 
 export default function RecipeDetails(props) {
@@ -7,6 +8,7 @@ export default function RecipeDetails(props) {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://dummyjson.com/recipes/${id}`)
@@ -76,6 +78,7 @@ export default function RecipeDetails(props) {
               </ul>
             </div>
           </div>
+          <button onClick={() => navigate(`/`)}>Check another recipe</button>
         </div>
       )}
     </>
