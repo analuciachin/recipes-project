@@ -23,7 +23,7 @@ export default function GetRecipes() {
       <div className="recipe-list">
         {recipes &&
           recipes.map((recipes) => (
-            <RecipeCard key={recipes.id} details={recipes} />
+            <RecipeCard key={recipes.id} recipe_card={recipes} />
           ))}
       </div>
     </>
