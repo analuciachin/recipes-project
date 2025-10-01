@@ -1,3 +1,32 @@
 body {
   background-color: #e6e6e6;
 }
+
+.recipe-details__container {
+  background-color: #fff;
+  padding: 50px 100px;
+}
+
+.recipe-details__image {
+  width: 500px;
+  height: 500px;
+  margin: 30px 0;
+}
+
+.recipe-details__information {
+  font-size: 1.1rem;
+  span {
+    font-weight: bold;
+  }
+}
+
+.recipe-details__ingredients,
+.recipe-details__instructions {
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 0 auto 50px auto;
+  ul {
+    list-style-type: none;
+    margin-left: -40px;
+  }
+}
