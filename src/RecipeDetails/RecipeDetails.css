@@ -4,7 +4,8 @@ body {
 
 .recipe-details__container {
   background-color: #fff;
-  padding: 50px 100px;
+  padding: 50px 30px;
+  max-width: 920px;
 }
 
 .recipe-details__image {
@@ -20,15 +21,34 @@ body {
   }
 }
 
+.recipe-details__preparation {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
 .recipe-details__ingredients,
 .recipe-details__instructions {
-  font-size: 1.1rem;
-  text-align: center;
+  text-align: left;
+  font-size: 1.2rem;
   margin: 0 auto 50px auto;
-  ul {
-    list-style-type: none;
-    margin-left: -40px;
+  h2 {
+    margin-left: 30px;
   }
+}
+
+ul,
+ol {
+  text-align: left;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+ol li {
+  margin-bottom: 8px;
 }
 
 .recipe-details__container button {

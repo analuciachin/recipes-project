@@ -71,11 +71,11 @@ export default function RecipeDetails(props) {
             </div>
             <div className="recipe-details__instructions">
               <h2>Instructions</h2>
-              <ul>
+              <ol>
                 {details.instructions.map((instruction, index) => (
                   <li key={index}>{instruction}</li>
                 ))}
-              </ul>
+              </ol>
             </div>
           </div>
           <button onClick={() => navigate(`/`)}>Check another recipe</button>
