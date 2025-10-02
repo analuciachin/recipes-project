@@ -42,3 +42,7 @@
   transition: background 0.3s;
   font-size: 1.1rem;
 }
+
+.recipe-card__star {
+  margin-top: 20px;
+}

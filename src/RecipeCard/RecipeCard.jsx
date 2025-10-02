@@ -1,9 +1,12 @@
+import { useState } from "react";
 import "./RecipeCard.css";
 import { useNavigate } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
 
 export default function RecipeCard(props) {
   const { recipe_card } = props;
   const navigate = useNavigate();
+  const [favourite, setFavourite] = useState(false);
 
   return (
     <>
@@ -26,6 +29,14 @@ export default function RecipeCard(props) {
         <button onClick={() => navigate(`/recipes/${recipe_card.id}`)}>
           See recipe
         </button>
+        <div className="recipe-card__star">
+          <FaStar
+            onClick={() => setFavourite(!favourite)}
+            color={favourite ? "orange" : "gray"}
+            size={32}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
       </div>
     </>
   );
