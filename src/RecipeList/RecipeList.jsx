@@ -28,9 +28,6 @@ export default function GetRecipes() {
 
   return (
     <>
-      <header className="banner-stripes">
-        <h1>Food & Drinks Hub</h1>
-      </header>
       <div className="recipe-list">
         {recipes &&
           recipes.map((recipes) => (
