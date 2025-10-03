@@ -34,7 +34,7 @@ export default function GetRecipes() {
       <div className="recipe-list">
         {recipes &&
           recipes.map((recipes) => (
-            <RecipeCard key={recipes.id} recipe_card={recipes} />
+            <RecipeCard key={recipes.id} card={recipes} />
           ))}
       </div>
     </>
