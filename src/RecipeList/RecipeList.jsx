@@ -7,6 +7,7 @@ export default function GetRecipes() {
   const [recipes, setRecipes] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [cardData, setCardData] = useState(null);
 
   useEffect(() => {
     fetch("https://dummyjson.com/recipes")
@@ -23,6 +24,14 @@ export default function GetRecipes() {
       });
   }, []);
 
+  const handleCardData = (dataFromCard) => {
+    setCardData(dataFromCard);
+  };
+
+  useEffect(() => {
+    console.log("new card: ", cardData);
+  }, [cardData]); // This effect runs whenever 'count' changes
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
@@ -31,7 +40,11 @@ export default function GetRecipes() {
       <div className="recipe-list">
         {recipes &&
           recipes.map((recipes) => (
-            <RecipeCard key={recipes.id} card={recipes} />
+            <RecipeCard
+              key={recipes.id}
+              card={recipes}
+              onCardDataReceived={handleCardData}
+            />
           ))}
       </div>
     </>

@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./RecipeCard.css";
 import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 
 export default function RecipeCard(props) {
-  const { card } = props;
+  const { card, onCardDataReceived } = props;
   const [newCard, setNewCard] = useState(card);
   const navigate = useNavigate();
   const [favourite, setFavourite] = useState(false);
@@ -16,6 +16,10 @@ export default function RecipeCard(props) {
       favourite: !favourite,
     });
   }
+  useEffect(() => {
+    onCardDataReceived(newCard);
+    // console.log("new card: ", newCard);
+  }, [newCard]); // This effect runs whenever 'count' changes
 
   return (
     <>
