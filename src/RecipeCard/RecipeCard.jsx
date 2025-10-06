@@ -19,7 +19,7 @@ export default function RecipeCard(props) {
   useEffect(() => {
     onCardDataReceived(newCard);
     // console.log("new card: ", newCard);
-  }, [newCard]); // This effect runs whenever 'count' changes
+  }, [newCard]);
 
   return (
     <>

@@ -3,7 +3,8 @@ import RecipeCard from "../RecipeCard/RecipeCard.jsx";
 import "./RecipeList.css";
 import { FaRegStar } from "react-icons/fa";
 
-export default function GetRecipes() {
+export default function GetRecipes(props) {
+  const { onListDataReceived } = props;
   const [recipes, setRecipes] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -28,9 +29,23 @@ export default function GetRecipes() {
     setCardData(dataFromCard);
   };
 
+  const replaceRecipe = (recipeIdToReplace, newRecipeData) => {
+    const updatedRecipeList = recipes.map((recipe) =>
+      recipe.id === recipeIdToReplace ? { ...recipe, ...newRecipeData } : recipe
+    );
+    setRecipes(updatedRecipeList);
+  };
+
   useEffect(() => {
-    console.log("new card: ", cardData);
-  }, [cardData]); // This effect runs whenever 'count' changes
+    if (cardData) {
+      // console.log("cardData: ", cardData.id);
+      replaceRecipe(cardData.id, cardData);
+    }
+  }, [cardData]);
+
+  useEffect(() => {
+    onListDataReceived(recipes);
+  }, [recipes]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
