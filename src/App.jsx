@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import RecipeList from "./RecipeList/RecipeList.jsx";
 import RecipeDetails from "./RecipeDetails/RecipeDetails.jsx";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import FavouriteRecipes from "./FavouriteRecipes/FavouriteRecipes.jsx";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -34,6 +35,10 @@ function App() {
             element={<RecipeList onListDataReceived={handleListData} />}
           ></Route>
           <Route path="/recipes/:id" element={<RecipeDetails />}></Route>
+          <Route
+            path="/favourites"
+            element={<FavouriteRecipes recipes={listData} />}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>

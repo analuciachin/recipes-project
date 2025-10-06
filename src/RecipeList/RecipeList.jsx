@@ -16,12 +16,12 @@ export default function GetRecipes(props) {
       .then((data) => {
         setRecipes(data.recipes);
         setLoading(false);
-        console.log(recipes);
+        // console.log(recipes);
       })
       .catch((error) => {
         setError(error.message);
         setLoading(false);
-        console.log(error);
+        // console.log(error);
       });
   }, []);
 
