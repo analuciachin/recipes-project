@@ -1,14 +1,31 @@
+import { useState, useEffect } from "react";
 import "./FavouriteRecipes.css";
 
 export default function FavouriteRecipes(props) {
   const { recipes } = props;
-  console.log("favourite", recipes);
+  const [count, setCount] = useState(0);
+
+  function countFavourite() {
+    for (const item of recipes) {
+      if (item.favourite === true) {
+        setCount(count + 1);
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (recipes) {
+      countFavourite();
+      console.log("count", count);
+    }
+  }, [recipes]);
+
   return (
     <>
       <h1>Favourite Recipes</h1>
       <div className="recipe-list">
         <ul>
-          {recipes ? (
+          {count > 0 && recipes ? (
             recipes
               .filter((recipe) => recipe.favourite === true)
               .map((recipe) => (

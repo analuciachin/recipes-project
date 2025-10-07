@@ -23,7 +23,7 @@ function App() {
         <header className="banner-stripes">
           <h1>Food & Drinks Hub</h1>
         </header>
-        <nav style={{ display: "flex", gap: "1rem", marginBottom: "1rem" }}>
+        <nav className="app__nav">
           <Link to="/">Home</Link>
           <Link to="/favourites">Favourites</Link>
         </nav>
