@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import RecipeList from "./RecipeList/RecipeList.jsx";
 import RecipeDetails from "./RecipeDetails/RecipeDetails.jsx";
+import SearchRecipe from "./SearchRecipe/SearchRecipe.jsx";
 import FavouriteRecipes from "./FavouriteRecipes/FavouriteRecipes.jsx";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <nav className="app__nav">
           <Link to="/">Home</Link>
           <Link to="/favourites">Favourites</Link>
+          <Link to="/search">Search Recipe</Link>
         </nav>
         <Routes>
           <Route
@@ -37,6 +39,7 @@ function App() {
             path="/favourites"
             element={<FavouriteRecipes recipes={listData} />}
           ></Route>
+          <Route path="/search" element={<SearchRecipe />}></Route>
         </Routes>
       </BrowserRouter>
     </>
