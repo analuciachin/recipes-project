@@ -22,3 +22,7 @@ select {
   background-size: 20px;
   padding-right: 30px; /* Adjust padding to make space for the arrow */
 }
+
+.select-recipes {
+  margin-bottom: 100px;
+}

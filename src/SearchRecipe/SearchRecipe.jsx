@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SearchRecipe.css";
 
 export default function SearchRecipe(props) {
@@ -6,6 +7,7 @@ export default function SearchRecipe(props) {
   const [recipes, setRecipes] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const selectedMeal = event.target.value;
@@ -16,7 +18,7 @@ export default function SearchRecipe(props) {
       .then((data) => {
         setRecipes(data.recipes);
         setLoading(false);
-        console.log(data);
+        // console.log(data);
       })
       .catch((error) => {
         setError(error.message);
@@ -26,26 +28,48 @@ export default function SearchRecipe(props) {
 
   return (
     <>
-      <h1>Out of ideas... Let's search for a recipe</h1>
-      <label htmlFor="meal">Select a meal type:</label>
-      <select value={selectedMeal} onChange={handleChange}>
-        <option value="">Select an option</option>
-        <option value="breakfast">Breakfast</option>
-        <option value="lunch">Lunch</option>
-        <option value="dinner">Dinner</option>
-        <option value="appetizer">Appetizer</option>
-        <option value="snack">Snack</option>
-        <option value="desert">Dessert</option>
-        <option value="beverage">Beverage</option>
-      </select>
+      <h1>Out of ideas... Let's search for recipes</h1>
+      <div className="select-recipes">
+        <label htmlFor="meal">Select a meal type:</label>
+        <select value={selectedMeal} onChange={handleChange}>
+          <option value="">Select an option</option>
+          <option value="breakfast">Breakfast</option>
+          <option value="lunch">Lunch</option>
+          <option value="dinner">Dinner</option>
+          <option value="appetizer">Appetizer</option>
+          <option value="snack">Snack</option>
+          <option value="dessert">Dessert</option>
+          <option value="beverage">Beverage</option>
+        </select>
+      </div>
 
-      <h1>Search Recipes</h1>
-      {recipes &&
-        recipes.map((recipe) => (
-          <div key={recipe.id} className="recipe-card">
-            <h3 className="recipe-card__name">{recipe.name}</h3>
-          </div>
-        ))}
+      <div className="recipe-list">
+        {selectedMeal !== "" &&
+          recipes &&
+          recipes.map((recipe) => (
+            // <div key={recipe.id} className="recipe-card">
+            //   <h3 className="recipe-card__name">{recipe.name}</h3>
+            // </div>
+
+            <div className="recipe-card">
+              <h3 className="recipe-card__name">{recipe.name}</h3>
+              <img
+                src={recipe.image}
+                alt={recipe.name}
+                className="recipe-card__image"
+              />
+              <p className="recipe-card__cuisine">
+                <span>Cuisine:</span> {recipe.cuisine}
+              </p>
+              <p className="recipe-card__difficulty">
+                <span>Difficulty:</span> {recipe.difficulty}
+              </p>
+              <button onClick={() => navigate(`/recipes/${recipe.id}`)}>
+                See recipe
+              </button>
+            </div>
+          ))}
+      </div>
     </>
   );
 }
