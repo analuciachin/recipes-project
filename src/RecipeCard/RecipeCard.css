@@ -32,10 +32,22 @@
   }
 }
 
-.recipe-card button {
+.recipe-card button.main-btn {
   background: #ff7043;
   color: white;
   border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 1.1rem;
+  margin-right: 10px;
+}
+
+.recipe-card button.secondary-btn {
+  background: #fff;
+  color: #ff7043;
+  border: 1px solid #ff7043;
   padding: 10px 18px;
   border-radius: 25px;
   cursor: pointer;

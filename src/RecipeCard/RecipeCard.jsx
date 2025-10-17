@@ -39,9 +39,13 @@ export default function RecipeCard(props) {
         <p className="recipe-card__difficulty">
           <span>Difficulty:</span> {newCard.difficulty}
         </p>
-        <button onClick={() => navigate(`/recipes/${newCard.id}`)}>
+        <button
+          className="main-btn"
+          onClick={() => navigate(`/recipes/${newCard.id}`)}
+        >
           See recipe
         </button>
+        <button className="secondary-btn">Delete</button>
         <div className="recipe-card__star">
           <FaStar
             onClick={handleFavouriteClick}
