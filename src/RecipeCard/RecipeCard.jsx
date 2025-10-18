@@ -8,6 +8,7 @@ export default function RecipeCard(props) {
   const [newCard, setNewCard] = useState(card);
   const navigate = useNavigate();
   const [favourite, setFavourite] = useState(false);
+  const [error, setError] = useState();
 
   function handleFavouriteClick() {
     setFavourite(!favourite);
@@ -16,9 +17,23 @@ export default function RecipeCard(props) {
       favourite: !favourite,
     });
   }
+
+  function handleDeleteClick(recipeClicked) {
+    console.log(recipeClicked);
+    fetch(`https://dummyjson.com/recipes/${recipeClicked}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => setNewCard(data))
+      .catch((err) => {
+        setError(err.message);
+        // console.log(error);
+      });
+  }
+
   useEffect(() => {
     onCardDataReceived(newCard);
-    // console.log("new card: ", newCard);
+    console.log(newCard);
   }, [newCard]);
 
   return (
@@ -45,7 +60,12 @@ export default function RecipeCard(props) {
         >
           See recipe
         </button>
-        <button className="secondary-btn">Delete</button>
+        <button
+          className="secondary-btn"
+          onClick={() => handleDeleteClick(newCard.id)}
+        >
+          Delete
+        </button>
         <div className="recipe-card__star">
           <FaStar
             onClick={handleFavouriteClick}

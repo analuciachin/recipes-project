@@ -17,8 +17,8 @@ export default function GetRecipes(props) {
         setLoading(false);
         // console.log(recipes);
       })
-      .catch((error) => {
-        setError(error.message);
+      .catch((err) => {
+        setError(err.message);
         setLoading(false);
         // console.log(error);
       });
@@ -53,13 +53,15 @@ export default function GetRecipes(props) {
     <>
       <div className="recipe-list">
         {recipes &&
-          recipes.map((recipes) => (
-            <RecipeCard
-              key={recipes.id}
-              card={recipes}
-              onCardDataReceived={handleCardData}
-            />
-          ))}
+          recipes
+            .filter((recipe) => recipe.isDeleted !== true)
+            .map((recipe) => (
+              <RecipeCard
+                key={recipe.id}
+                card={recipe}
+                onCardDataReceived={handleCardData}
+              />
+            ))}
       </div>
     </>
   );
