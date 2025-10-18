@@ -46,7 +46,10 @@ export default function FavouriteRecipes(props) {
                 <p className="recipe-card__difficulty">
                   <span>Difficulty:</span> {recipe.difficulty}
                 </p>
-                <button onClick={() => navigate(`/recipes/${recipe.id}`)}>
+                <button
+                  className="main-btn"
+                  onClick={() => navigate(`/recipes/${recipe.id}`)}
+                >
                   See recipe
                 </button>
               </div>

@@ -47,11 +47,7 @@ export default function SearchRecipe(props) {
         {selectedMeal !== "" &&
           recipes &&
           recipes.map((recipe) => (
-            // <div key={recipe.id} className="recipe-card">
-            //   <h3 className="recipe-card__name">{recipe.name}</h3>
-            // </div>
-
-            <div className="recipe-card">
+            <div key={recipe.id} className="recipe-card">
               <h3 className="recipe-card__name">{recipe.name}</h3>
               <img
                 src={recipe.image}
@@ -64,7 +60,10 @@ export default function SearchRecipe(props) {
               <p className="recipe-card__difficulty">
                 <span>Difficulty:</span> {recipe.difficulty}
               </p>
-              <button onClick={() => navigate(`/recipes/${recipe.id}`)}>
+              <button
+                className="main-btn"
+                onClick={() => navigate(`/recipes/${recipe.id}`)}
+              >
                 See recipe
               </button>
             </div>
