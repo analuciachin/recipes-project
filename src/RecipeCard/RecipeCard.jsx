@@ -4,18 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 
 export default function RecipeCard(props) {
-  const { card, onCardDataReceived } = props;
-  const [newCard, setNewCard] = useState(card);
-  const navigate = useNavigate();
-  const [favourite, setFavourite] = useState(false);
+  const { card, recipes, setRecipes } = props;
   const [error, setError] = useState();
 
-  function handleFavouriteClick() {
-    setFavourite(!favourite);
-    setNewCard({
-      ...newCard,
-      favourite: !favourite,
-    });
+  function toggleFavourite() {
+    const updatedRecipes = recipes.map((recipe) =>
+      recipe.id === card.id
+        ? { ...recipe, favourite: !recipe.favourite }
+        : recipe
+    );
+    setRecipes(updatedRecipes);
   }
 
   function handleDeleteClick(recipeClicked) {
@@ -24,56 +22,50 @@ export default function RecipeCard(props) {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((data) => setNewCard(data))
+      .then(() => {
+        const updatedRecipes = recipes.map((recipe) =>
+          recipe.id === card.id ? { ...recipe, isDeleted: true } : recipe
+        );
+        setRecipes(updatedRecipes);
+      })
       .catch((err) => {
         setError(err.message);
-        // console.log(error);
       });
   }
-
-  useEffect(() => {
-    onCardDataReceived(newCard);
-    console.log(newCard);
-  }, [newCard]);
 
   return (
     <>
       <div className="recipe-card">
-        <h3 className="recipe-card__name">{newCard.name}</h3>
-        <img
-          src={newCard.image}
-          alt={newCard.name}
-          className="recipe-card__image"
-        />
+        <h3 className="recipe-card__name">{card.name}</h3>
+        <img src={card.image} alt={card.name} className="recipe-card__image" />
         <p className="recipe-card__cuisine">
-          <span>Cuisine:</span> {newCard.cuisine}
+          <span>Cuisine:</span> {card.cuisine}
         </p>
         <p className="recipe-card__meal-type">
-          <span>Meal Type:</span> {newCard.mealType}
+          <span>Meal Type:</span> {card.mealType}
         </p>
         <p className="recipe-card__difficulty">
-          <span>Difficulty:</span> {newCard.difficulty}
+          <span>Difficulty:</span> {card.difficulty}
         </p>
         <button
           className="main-btn"
-          onClick={() => navigate(`/recipes/${newCard.id}`)}
+          onClick={() => navigate(`/recipes/${card.id}`)}
         >
           See recipe
         </button>
-        <button
-          className="secondary-btn"
-          onClick={() => handleDeleteClick(newCard.id)}
-        >
+        <button className="secondary-btn" onClick={handleDeleteClick}>
           Delete
         </button>
         <div className="recipe-card__star">
           <FaStar
-            onClick={handleFavouriteClick}
-            color={favourite ? "orange" : "gray"}
+            onClick={toggleFavourite}
+            color={card.favourite ? "orange" : "gray"}
             size={32}
             style={{ cursor: "pointer" }}
           />
         </div>
+
+        {error && <p className="error">{error}</p>}
       </div>
     </>
   );

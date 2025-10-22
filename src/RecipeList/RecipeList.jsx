@@ -2,49 +2,29 @@ import { useState, useEffect } from "react";
 import RecipeCard from "../RecipeCard/RecipeCard.jsx";
 import "./RecipeList.css";
 
-export default function GetRecipes(props) {
-  const { onListDataReceived } = props;
-  const [recipes, setRecipes] = useState(null);
+export default function RecipeList(props) {
+  const { recipes, setRecipes } = props;
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [cardData, setCardData] = useState(null);
 
   useEffect(() => {
-    fetch("https://dummyjson.com/recipes")
-      .then((response) => response.json())
-      .then((data) => {
-        setRecipes(data.recipes);
-        setLoading(false);
-        // console.log(recipes);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-        // console.log(error);
-      });
-  }, []);
-
-  const handleCardData = (dataFromCard) => {
-    setCardData(dataFromCard);
-  };
-
-  const replaceRecipe = (recipeIdToReplace, newRecipeData) => {
-    const updatedRecipeList = recipes.map((recipe) =>
-      recipe.id === recipeIdToReplace ? { ...recipe, ...newRecipeData } : recipe
-    );
-    setRecipes(updatedRecipeList);
-  };
-
-  useEffect(() => {
-    if (cardData) {
-      // console.log("cardData: ", cardData.id);
-      replaceRecipe(cardData.id, cardData);
+    if (recipes.length === 0) {
+      fetch("https://dummyjson.com/recipes")
+        .then((response) => response.json())
+        .then((data) => {
+          setRecipes(data.recipes);
+          setLoading(false);
+          // console.log(recipes);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setLoading(false);
+          // console.log(error);
+        });
+    } else {
+      setLoading(false);
     }
-  }, [cardData]);
-
-  useEffect(() => {
-    onListDataReceived(recipes);
-  }, [recipes]);
+  }, [recipes, setRecipes]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -59,7 +39,8 @@ export default function GetRecipes(props) {
               <RecipeCard
                 key={recipe.id}
                 card={recipe}
-                onCardDataReceived={handleCardData}
+                setRecipes={setRecipes}
+                recipes={recipes}
               />
             ))}
       </div>

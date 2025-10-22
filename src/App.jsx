@@ -7,16 +7,7 @@ import SearchRecipe from "./SearchRecipe/SearchRecipe.jsx";
 import FavouriteRecipes from "./FavouriteRecipes/FavouriteRecipes.jsx";
 
 function App() {
-  // const [count, setCount] = useState(0);
-  const [listData, setListData] = useState(null);
-
-  const handleListData = (dataFromList) => {
-    setListData(dataFromList);
-  };
-
-  // useEffect(() => {
-  //   console.log("new list: ", listData);
-  // }, [listData]);
+  const [recipes, setRecipes] = useState([]);
 
   return (
     <>
@@ -32,12 +23,12 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<RecipeList onListDataReceived={handleListData} />}
+            element={<RecipeList recipes={recipes} setRecipes={setRecipes} />}
           ></Route>
           <Route path="/recipes/:id" element={<RecipeDetails />}></Route>
           <Route
             path="/favourites"
-            element={<FavouriteRecipes recipes={listData} />}
+            element={<FavouriteRecipes recipes={recipes} />}
           ></Route>
           <Route path="/search" element={<SearchRecipe />}></Route>
         </Routes>
