@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import "./SearchRecipe.css";
+// import "./SearchRecipe.css";
+import RecipeCardLight from "../RecipeCardLight/RecipeCardLight.jsx";
 
 export default function SearchRecipe(props) {
   const [selectedMeal, setSelectedMeal] = useState("");
   const [recipes, setRecipes] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const selectedMeal = event.target.value;
@@ -47,26 +46,7 @@ export default function SearchRecipe(props) {
         {selectedMeal !== "" &&
           recipes &&
           recipes.map((recipe) => (
-            <div key={recipe.id} className="recipe-card">
-              <h3 className="recipe-card__name">{recipe.name}</h3>
-              <img
-                src={recipe.image}
-                alt={recipe.name}
-                className="recipe-card__image"
-              />
-              <p className="recipe-card__cuisine">
-                <span>Cuisine:</span> {recipe.cuisine}
-              </p>
-              <p className="recipe-card__difficulty">
-                <span>Difficulty:</span> {recipe.difficulty}
-              </p>
-              <button
-                className="main-btn"
-                onClick={() => navigate(`/recipes/${recipe.id}`)}
-              >
-                See recipe
-              </button>
-            </div>
+            <RecipeCardLight recipe={recipe} key={recipe.id} />
           ))}
       </div>
     </>
