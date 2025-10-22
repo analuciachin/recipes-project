@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-// import "./SearchRecipe.css";
+import { useState } from "react";
+import "./SearchRecipe.css";
 import RecipeCardLight from "../RecipeCardLight/RecipeCardLight.jsx";
 
 export default function SearchRecipe(props) {
@@ -27,9 +27,11 @@ export default function SearchRecipe(props) {
 
   return (
     <>
-      <h1>Out of ideas... Let's search for recipes</h1>
+      <h2 className="search-recipes__title">
+        Out of ideas... Let's search for recipes
+      </h2>
       <div className="select-recipes">
-        <label htmlFor="meal">Select a meal type:</label>
+        <label>Select a meal type:</label>
         <select value={selectedMeal} onChange={handleChange}>
           <option value="">Select an option</option>
           <option value="breakfast">Breakfast</option>

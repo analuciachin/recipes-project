@@ -7,8 +7,8 @@
 }
 
 .banner-stripes {
-  height: 200px;
-  min-width: 1900px;
+  height: 180px;
+  min-width: 300px;
   width: 100%;
   background: repeating-linear-gradient(
     45deg,
@@ -29,9 +29,34 @@
   margin-bottom: 30px;
 }
 
+h1 {
+  font-size: 2.5rem;
+}
+
+.search-recipes__title {
+  font-size: 1.8rem;
+  margin-top: 50px;
+}
+
 .app__nav {
   display: flex;
-  gap: 30px;
-  margin: 50px 30px;
-  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: #ff7f50; /* coral theme example */
+  padding: 1rem;
+  flex-wrap: wrap; /* allows wrapping if needed */
+}
+
+.app__nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.app__nav a:hover {
+  color: #ffe;
+  transform: scale(1.1);
 }

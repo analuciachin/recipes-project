@@ -1,6 +1,6 @@
 label {
   font-size: 1.5rem;
-  margin: 0 20px;
+  margin: 0 20px 10px 20px;
 }
 
 select {
@@ -25,4 +25,9 @@ select {
 
 .select-recipes {
   margin-bottom: 100px;
+}
+
+.search-recipes__title {
+  font-size: 1.8rem;
+  margin-top: 50px;
 }
