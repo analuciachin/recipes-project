@@ -6,25 +6,19 @@
   margin-top: 60px;
 }
 
-/* Tablet (≥ 600px) — show 2 columns */
-@media (min-width: 600px) {
+@media (min-width: 900px) {
   .recipe-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Larger tablets or small desktops (≥ 900px) — show 3 columns */
-@media (min-width: 900px) {
+@media (min-width: 1200px) {
   .recipe-list {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Desktop (≥ 1200px) — show 4 columns */
-@media (min-width: 1200px) {
-  #root {
-    padding: 20px 300px;
-  }
+@media (min-width: 1700px) {
   .recipe-list {
     grid-template-columns: repeat(4, 1fr);
   }

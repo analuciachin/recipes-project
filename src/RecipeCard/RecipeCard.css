@@ -45,7 +45,7 @@
   cursor: pointer;
   transition: background 0.3s;
   font-size: 1.1rem;
-  margin-right: 10px;
+  margin: 10px 0;
 }
 
 .recipe-card button.secondary-btn {
