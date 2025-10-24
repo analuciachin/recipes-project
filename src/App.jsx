@@ -18,7 +18,7 @@ function App() {
         <nav className="app__nav">
           <Link to="/">Home</Link>
           <Link to="/favourites">Favourites</Link>
-          <Link to="/search">Search Recipe</Link>
+          <Link to="/search">Search Recipes</Link>
         </nav>
         <Routes>
           <Route

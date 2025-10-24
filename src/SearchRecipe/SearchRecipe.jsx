@@ -31,8 +31,13 @@ export default function SearchRecipe(props) {
         Out of ideas... Let's search for recipes
       </h2>
       <div className="select-recipes">
-        <label>Select a meal type:</label>
-        <select value={selectedMeal} onChange={handleChange}>
+        <label htmlFor="meal-type">Select a meal type:</label>
+        <select
+          value={selectedMeal}
+          onChange={handleChange}
+          id="meal-type"
+          name="meal-type"
+        >
           <option value="">Select an option</option>
           <option value="breakfast">Breakfast</option>
           <option value="lunch">Lunch</option>

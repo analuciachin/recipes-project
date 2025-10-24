@@ -15,7 +15,9 @@ export default function FavouriteRecipes(props) {
   }
 
   if (!recipes || recipes.length === 0) {
-    return <h1>No favourite recipes selected.</h1>;
+    return (
+      <h2 className="no-favourite-message">No favourite recipes selected.</h2>
+    );
   }
 
   const favouriteRecipes = recipes.filter(
@@ -23,7 +25,9 @@ export default function FavouriteRecipes(props) {
   );
 
   if (favouriteRecipes.length === 0) {
-    return <h1>No favourite recipes selected.</h1>;
+    return (
+      <h2 className="no-favourite-message">No favourite recipes selected.</h2>
+    );
   }
 
   useEffect(() => {

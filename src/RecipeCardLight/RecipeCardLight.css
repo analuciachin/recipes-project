@@ -23,10 +23,6 @@ select {
   padding-right: 30px; /* Adjust padding to make space for the arrow */
 }
 
-.select-recipes {
-  margin-bottom: 100px;
-}
-
 .recipe-card button.main-btn {
   background: #ff7043;
   color: white;
