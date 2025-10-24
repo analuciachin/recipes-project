@@ -37,6 +37,7 @@ h1 {
   display: flex;
   justify-content: left;
   align-items: center;
+  flex-direction: column;
   gap: 1.5rem;
   background-color: #ff7f50; /* coral theme example */
   padding: 1rem;
@@ -54,4 +55,10 @@ h1 {
 .app__nav a:hover {
   color: #ffe;
   transform: scale(1.1);
+}
+
+@media (min-width: 600px) {
+  .app__nav {
+    flex-direction: row;
+  }
 }

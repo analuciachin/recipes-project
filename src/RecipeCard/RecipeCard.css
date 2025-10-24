@@ -1,25 +1,16 @@
-/* .recipe-card {
-  padding: 20px 50px;
-  margin: 20px;
-  background-color: #fff;
+.recipe-card {
+  background: #fff;
   border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   transform-style: preserve-3d;
-  perspective: 1000px;
 }
 
 .recipe-card:hover {
   transform: rotateY(10deg) rotateX(5deg) scale(1.05);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-} */
-
-.recipe-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .recipe-card:hover {

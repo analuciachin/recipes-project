@@ -6,6 +6,7 @@ import { FaStar } from "react-icons/fa";
 export default function RecipeCard(props) {
   const { card, recipes, setRecipes } = props;
   const [error, setError] = useState();
+  const navigate = useNavigate();
 
   function toggleFavourite() {
     const updatedRecipes = recipes.map((recipe) =>

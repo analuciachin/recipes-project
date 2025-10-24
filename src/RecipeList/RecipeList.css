@@ -3,6 +3,7 @@
   grid-template-columns: 1fr; /* default: 1 column on mobile */
   gap: 1.5rem; /* spacing between cards */
   padding: 1rem;
+  margin-top: 60px;
 }
 
 /* Tablet (≥ 600px) — show 2 columns */
@@ -21,6 +22,9 @@
 
 /* Desktop (≥ 1200px) — show 4 columns */
 @media (min-width: 1200px) {
+  #root {
+    padding: 20px 300px;
+  }
   .recipe-list {
     grid-template-columns: repeat(4, 1fr);
   }
