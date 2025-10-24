@@ -1,4 +1,4 @@
-body {
+/* body {
   background-color: #e6e6e6;
 }
 
@@ -61,4 +61,133 @@ ol li {
   cursor: pointer;
   transition: background 0.3s;
   font-size: 1.2rem;
+} */
+
+/* General layout */
+.recipe-details__container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+/* Title */
+.recipe-details__container h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+/* Info section */
+.recipe-details__information {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.recipe-details__information span {
+  font-weight: 600;
+  color: #555;
+}
+
+/* Recipe image */
+.recipe-details__image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+}
+
+/* Ingredients and instructions layout */
+.recipe-details__preparation {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.recipe-details__ingredients h2,
+.recipe-details__instructions h2 {
+  color: #e67e22;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* List styles */
+.recipe-details__ingredients ul,
+.recipe-details__instructions ol {
+  padding-left: 1.5rem;
+  line-height: 1.6;
+}
+
+.recipe-details__ingredients li,
+.recipe-details__instructions li {
+  margin-bottom: 0.5rem;
+}
+
+/* Button */
+button {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.75rem 1.5rem;
+  background-color: #e67e22;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #cf711f;
+}
+
+/* ------------------------------
+   RESPONSIVE DESIGN
+--------------------------------*/
+
+/* 📱 Mobile (default): 1 column */
+@media (max-width: 600px) {
+  .recipe-details__container {
+    padding: 1rem;
+  }
+
+  .recipe-details__container h1 {
+    font-size: 1.6rem;
+  }
+
+  .recipe-details__preparation {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+/* 📱📱 Tablets: 2 columns for ingredients & instructions */
+@media (min-width: 601px) and (max-width: 992px) {
+  .recipe-details__preparation {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .recipe-details__container h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* 💻 Desktop: wider grid with balanced spacing */
+@media (min-width: 993px) {
+  .recipe-details__preparation {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .recipe-details__container h1 {
+    font-size: 2.2rem;
+  }
 }

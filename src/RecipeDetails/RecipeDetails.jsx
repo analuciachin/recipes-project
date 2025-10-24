@@ -78,7 +78,12 @@ export default function RecipeDetails(props) {
               </ol>
             </div>
           </div>
-          <button onClick={() => navigate(`/`)}>Check another recipe</button>
+          <button
+            className="recipe-details__button"
+            onClick={() => navigate(`/`)}
+          >
+            Check another recipe
+          </button>
         </div>
       )}
     </>
