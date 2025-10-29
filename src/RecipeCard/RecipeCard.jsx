@@ -42,9 +42,6 @@ export default function RecipeCard(props) {
         <p className="recipe-card__cuisine">
           <span>Cuisine:</span> {card.cuisine}
         </p>
-        <p className="recipe-card__meal-type">
-          <span>Meal Type:</span> {card.mealType}
-        </p>
         <p className="recipe-card__difficulty">
           <span>Difficulty:</span> {card.difficulty}
         </p>
