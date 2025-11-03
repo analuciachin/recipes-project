@@ -13,7 +13,7 @@ function App() {
     <>
       <BrowserRouter>
         <header className="banner-stripes">
-          <h1>Food & Drinks Hub</h1>
+          <h1>Recipes</h1>
         </header>
         <nav className="app__nav">
           <Link to="/">Home</Link>
